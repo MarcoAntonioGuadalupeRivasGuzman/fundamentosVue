@@ -1,5 +1,5 @@
 <template>
-    <h2>Counter</h2>
+    <h2>{{ title || customTitle }}</h2>
     <p>{{ counter }} <sup>2</sup> = {{ squeareCounter }} </p>
     <div>
         <button @click="incrementCounter()" class="btn">+1</button>
@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    props: ['title'],
     data(){
         return {
             counter: 5
@@ -28,6 +29,9 @@ export default {
     computed: {
         squeareCounter: function(){
             return this.counter * this.counter
+        },
+        customTitle: function(){
+            return 'Contador'
         }
     }
 }
